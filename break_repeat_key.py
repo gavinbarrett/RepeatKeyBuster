@@ -92,10 +92,10 @@ def get_hamming(base, size):
 
 def get_file_contents(fi):
 	with open(fi, 'r') as f:
-		l = ""
+		b64 = ""
 		for line in f:
-			l += line[:-1]
-		return b64decode(l)
+			b64 += line[:-1]
+		return b64decode(b64)
 
 def get_key_sizes(base):
 	inf = float('inf')
@@ -110,6 +110,7 @@ def get_key_sizes(base):
 
 def decrypt(base, repeat_key):
 	a = 0
+	print(f'Ciphertext:\n')
 	for i in base:
 		c = bytes([i ^ ord(repeat_key[a])])
 		a = (a + 1) % len(repeat_key)
@@ -144,7 +145,7 @@ def crack_xor(arg):
 			sc = score
 			key = repeat_key
 	# decrypt the ciphertext with the key	
-	print(key)
+	print(f'Key:\n{key}\n')
 	decrypt(base, key)
 	
 
