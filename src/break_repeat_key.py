@@ -87,7 +87,7 @@ def get_hamming(base, size):
 	ham += hamming(bs[0],bs[1])/size
 	ham += hamming(bs[1],bs[2])/size
 	ham += hamming(bs[2],bs[3])/size
-	ham += hamming(bs[3],bs[4])/size
+	#ham += hamming(bs[3],bs[4])/size
 	return ham/size
 
 def get_file_contents(fi):
@@ -144,9 +144,10 @@ def crack_xor(arg):
 		if score > sc:
 			sc = score
 			key = repeat_key
+	return key
 	# decrypt the ciphertext with the key	
-	print(f'Key:\n{key}\n')
-	decrypt(base, key)
+	#print(f'Key:\n{key}\n')
+	#decrypt(base, key)
 	
 
 def main():
@@ -154,7 +155,8 @@ def main():
 		print('Incorrect number of arguments.\nUsage: ./break_repeat_key.py <enrypted_text_file>')
 		exit()
 	if (path.exists(argv[1]) and path.isfile(argv[1])):
-		crack_xor(argv[1])
+		key = crack_xor(argv[1])
+		print(f'key: {key}')
 	else:
 		print('Cannot open input file.')
 		exit()
