@@ -1,6 +1,6 @@
 import unittest
 from sys import path
-path.insert(1, '/home/gavin/Development/repeatkey/src/')
+path.insert(1, '../src/')
 from break_repeat_key import crack_xor
 
 class TesterBreakKey(unittest.TestCase):
