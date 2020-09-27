@@ -1,10 +1,12 @@
 ## Description
 RepeatKeyBuster is a utility for decrypting ciphertext encrypted with a repeating key xor cipher.
 
+![](https://github.com/gavinbarrett/RepeatKeyBuster/workflows/Break%20Key/badge.svg)
+
 This utility is tested on a ciphertext file that comes from Challenge 6, Set 1 of the ![Cryptopals Crypto Challenges](https://cryptopals.com/).
 
 ```bash
-cat 6.txt
+cat src/6.txt
 ```
 
 	HUIfTQsPAh9PE048GmllH0kcDk4TAQsHThsBFkU2AB4BSWQgVB0dQzNTTmVS
@@ -73,7 +75,7 @@ cat 6.txt
 	Jk8DCkkcC3hFMQIEC0EbAVIqCFZBO1IdBgZUVA4QTgUWSR4QJwwRTWM=
 
 ```bash
-./break_repeat_key.py 6.txt
+./src/break_repeat_key.py src/6.txt
 ```
 
 	Key:
