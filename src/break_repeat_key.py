@@ -7,15 +7,12 @@ from collections import defaultdict
 freq_table = [8.12,1.49,2.71,4.32,12.02,2.30,2.03,5.92,7.31,0.10,0.69,3.98,2.61,6.95,7.68,1.82,0.11,6.02,6.28,9.10,2.88,1.11,2.09,0.17,2.11,0.07,18.29]
 
 def compute_exp(c, n_obs, l):
-	if ((c > 96) and (c < 123)):
-		c -= 97
-		return freq_table[c] * l
-	elif ((c > 64) and (c < 91)):
-		c -= 65
-		return freq_table[c] * l
-	elif (c == 32):
-		c -= 6
-		return freq_table[c]
+	if 96 < c < 123:
+		return freq_table[c-97] * l
+	elif 64 < c < 91:
+		return freq_table[c-65] * l
+	elif c == 32:
+		return freq_table[c-6]
 	else:
 		return n_obs
 
